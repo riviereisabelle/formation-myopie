@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formation DPC - Prise en charge de la myopie évolutive chez l'enfant et l'adolescent. 8h en distanciel. Next Step Academy.">
+    <title>Formation DPC Myopie Évolutive - Next Step Academy</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', 'Verdana', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* === VARIABLES COULEURS === */
+        :root {
+            --bleu-marine: #003859;
+            --bleu-cyan: #00A9CE;
+            --turquoise-clair: #8DD3DD;
+            --vert-lime: #B8D430;
+            --jaune-citron: #E0E526;
+            --gris-clair: #f4f4f4;
+            --blanc: #ffffff;
+            --texte-principal: #333333;
+            --texte-secondaire: #666666;
+        }
+
+        /* === HEADER === */
+        header {
+            background: linear-gradient(135deg, var(--bleu-marine) 0%, var(--bleu-cyan) 100%);
+            color: var(--blanc);
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--jaune-citron) 0%, 
+                var(--jaune-citron) 25%, 
+                var(--vert-lime) 25%, 
+                var(--vert-lime) 50%,
+                var(--turquoise-clair) 50%,
+                var(--turquoise-clair) 75%,
+                var(--bleu-cyan) 75%);
+            opacity: 0.15;
+            transform: skewX(-15deg);
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .header-logos img {
+            max-height: 80px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: var(--blanc);
+            color: var(--bleu-marine);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge::before {
+            content: '✓';
+            color: var(--vert-lime);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* === CONTAINER === */
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 0;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* === CARDS === */
+        .card {
+            background: var(--blanc);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        /* === SECTION TITLES === */
+        h2 {
+            font-size: 2rem;
+            color: var(--bleu-marine);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid var(--bleu-cyan);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--bleu-marine);
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        /* === INFO GRID === */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background: var(--gris-clair);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--bleu-cyan);
+        }
+
+        .info-item strong {
+            color: var(--bleu-marine);
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        /* === ACCORDEON === */
+        .accordion {
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            background: var(--blanc);
+            border: 2px solid var(--gris-clair);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--bleu-cyan);
+            box-shadow: 0 2px 10px rgba(0, 169, 206, 0.1);
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, var(--gris-clair) 0%, var(--blanc) 100%);
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--bleu-marine);
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, var(--turquoise-clair) 0%, var(--gris-clair) 100%);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--bleu-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 25px;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+            padding: 20px 25px 25px;
+        }
+
+        .module-duration {
+            display: inline-block;
+            background: var(--vert-lime);
+            color: var(--blanc);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .sequence-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .sequence-list li {
+            padding: 12px 0 12px 30px;
+            border-bottom: 1px solid var(--gris-clair);
+            position: relative;
+        }
+
+        .sequence-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sequence-list li::before {
+            content: '▸';
+            color: var(--bleu-cyan);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* === SESSIONS GRID === */
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .session-card {
+            background: linear-gradient(135deg, var(--gris-clair) 0%, var(--blanc) 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid var(--bleu-cyan);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 169, 206, 0.2);
+        }
+
+        .session-number {
+            background: var(--bleu-cyan);
+            color: var(--blanc);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+
+        .session-dates {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bleu-marine);
+            margin-bottom: 8px;
+        }
+
+        .session-status {
+            display: inline-block;
+            background: var(--vert-lime);
+            color: var(--blanc);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* === BUTTONS === */
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bleu-cyan) 0%, var(--bleu-marine) 100%);
+            color: var(--blanc);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 169, 206, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--vert-lime);
+            color: var(--blanc);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bleu-marine);
+            transform: translateY(-2px);
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* === MAP === */
+        .map-container {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .accessibility-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--bleu-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .accessibility-link:hover {
+            color: var(--bleu-marine);
+            text-decoration: underline;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--bleu-marine);
+            color: var(--blanc);
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--blanc);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--bleu-cyan);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === ACCESSIBILITY === */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus visible pour accessibilité clavier */
+        a:focus-visible, button:focus-visible, .accordion-header:focus-visible {
+            outline: 3px solid var(--bleu-cyan);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header role="banner">
+        <div class="header-logos">
+            <img src="vignette_odpc_next_step.jpg" alt="Logo Next Step Academy - Audioprothèse & Optique">
+            <img src="Capture_d_e_cran_2025-12-30_a__12_35_35.png" alt="Logo ODPC - Organisme enregistré par l'ANDPC N°99A8">
+        </div>
+        
+        <h1>Prise en charge de la myopie évolutive<br>chez l'enfant et l'adolescent</h1>
+        <p class="header-subtitle">Formation DPC 100% distanciel • 8 heures</p>
+        
+        <div class="header-badges">
+            <span class="badge">Formation Continue</span>
+            <span class="badge">EPP (TCS)</span>
+            <span class="badge">Certification Qualiopi</span>
+            <span class="badge">Orientation DPC n°286</span>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container" role="main">
+        
+        <!-- PRÉSENTATION -->
+        <section class="card" aria-labelledby="presentation-title">
+            <h2 id="presentation-title">À propos de cette formation</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                Cette formation DPC vous permet de développer vos compétences dans la <strong>détection et le suivi de la myopie évolutive</strong> chez les jeunes patients. Vous apprendrez à maîtriser les solutions de freination (verres défocalisants, lentilles, orthokératologie), à optimiser la communication avec les parents et à coordonner votre action avec les ophtalmologistes.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>📅 Durée</strong>
+                    8 heures (6h FC + 2h EPP)
+                </div>
+                <div class="info-item">
+                    <strong>💻 Format</strong>
+                    100% distanciel<br>E-learning + 2 classes virtuelles
+                </div>
+                <div class="info-item">
+                    <strong>👥 Public</strong>
+                    Opticiens-lunetiers diplômés BTS OL minimum
+                </div>
+                <div class="info-item">
+                    <strong>💰 Financement</strong>
+                    OPCO Commerce (245€) ou AGEFICE
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMME DÉTAILLÉ -->
+        <section class="card" aria-labelledby="programme-title">
+            <h2 id="programme-title">Programme détaillé</h2>
+            <p style="margin-bottom: 25px;">
+                Le parcours se déroule sur <strong>6 semaines</strong> avec un accès flexible à la plateforme LMS 24h/24.
+            </p>
+
+            <div class="accordion" role="tablist">
+                <!-- Module 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 1 - Physiopathologie de la myopie <span class="module-duration">1h15</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <ul class="sequence-list">
+                            <li>Définition et épidémiologie (prévalence mondiale, complications)</li>
+                            <li>Mécanismes d'allongement axial (anatomie, défocalisation périphérique)</li>
+                            <li>Facteurs de risque (hérédité, âge, activités écrans/extérieur)</li>
+                            <li>Évaluation : Quiz 10 questions (seuil 80%)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 2 - Dépistage et anamnèse <span class="module-duration">1h15</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <ul class="sequence-list">
+                            <li>Identification des facteurs de risque en contexte réel</li>
+                            <li>Critères de dépistage (seuils d'alerte ≥-0,50D/an, ≥0,3mm/an)</li>
+                            <li>Recueil d'informations prescripteur (checklist 5 éléments)</li>
+                            <li>4 cas cliniques décisionnels interactifs avec feedback</li>
+                            <li>Évaluation : Tableau décisionnel (seuil 83%)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 3 - Solutions de freination <span class="module-duration">1h10</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <ul class="sequence-list">
+                            <li>Verres défocalisants (technologies Stellest/MiyoSmart, efficacité 30-60%)</li>
+                            <li>Lentilles multifocales et orthokératologie (principe, contraintes)</li>
+                            <li>Choix de monture adaptée à la morphologie enfant (4 critères)</li>
+                            <li>Tableau comparatif des 3 solutions (exercice seuil 90%)</li>
+                            <li>Limites de l'exercice opticien (Décret 2016-1381)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 4 - Communication & Techniques <span class="module-duration">1h20</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <ul class="sequence-list">
+                            <li>4 techniques de communication pédagogique (reformulation, questionnement, métaphore)</li>
+                            <li>Gestion des freins parentaux (coût, contrainte, doute) avec argumentaires scientifiques</li>
+                            <li>Tests cognitifs enfant (Bébé Vision, PIGASSOU) - vidéo démonstration</li>
+                            <li>Manipulation lentilles (pose/dépose, OrthoK, hygiène et observance)</li>
+                            <li>Protocole de suivi 12 mois (trame personnalisable)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Classe Virtuelle 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 4 - Classe virtuelle 1 : Synthèse <span class="module-duration">1h00</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <p><strong>📅 Participation obligatoire (ou visionnage replay)</strong></p>
+                        <ul class="sequence-list">
+                            <li>2 cas cliniques en sous-groupes avec restitution collective</li>
+                            <li>Jeux de rôle : simulation communication parent/opticien</li>
+                            <li>Débriefing des 4 techniques de communication</li>
+                            <li>Préparation à l'EPP (TCS) de la semaine 5</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 5 - Suivi et contrôle <span class="module-duration">1h00</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <ul class="sequence-list">
+                            <li>Mesures biométriques (longueur axiale, réfraction, kératométrie) avec seuils</li>
+                            <li>Checklist contrôle délivrance (10 points : AV, centrage, morphologie, confort)</li>
+                            <li>Troubles monoculaires/binoculaires (anisométropie, fixation excentrique)</li>
+                            <li>Protocole de suivi 12 mois (5 paramètres à tracer, critères d'alerte)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EPP -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 5 - EPP : Test de Concordance (TCS) <span class="module-duration">1h00</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <p><strong>⚠️ Validation DPC obligatoire : Score ≥70% requis</strong></p>
+                        <ul class="sequence-list">
+                            <li>10 vignettes cliniques complexes évaluées par panel de 5 experts</li>
+                            <li>Thèmes : dépistage, choix de solution, suivi, communication, coordination</li>
+                            <li>Rapport individuel avec identification des écarts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Classe Virtuelle 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" role="tab" tabindex="0" aria-expanded="false">
+                        <span>Semaine 6 - Classe virtuelle 2 : Débriefing EPP <span class="module-duration">1h00</span></span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="accordion-content" role="tabpanel">
+                        <p><strong>📅 Participation obligatoire (ou visionnage replay)</strong></p>
+                        <ul class="sequence-list">
+                            <li>Analyse des résultats collectifs (3 TCS les plus difficiles)</li>
+                            <li>Discussion collective avec justifications du panel d'experts</li>
+                            <li>Élaboration du plan d'amélioration (2 axes, 3 actions, échéancier)</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>⚠️ Remise du plan d'amélioration obligatoire sous 48h</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SESSIONS -->
+        <section class="card" aria-labelledby="sessions-title">
+            <h2 id="sessions-title">Calendrier des sessions 2025-2026</h2>
+            <p style="margin-bottom: 25px;">
+                Choisissez la session qui correspond à votre agenda. Effectif limité : <strong>6 participants minimum, 15 maximum</strong>.
+            </p>
+
+            <div class="sessions-grid">
+                <div class="session-card">
+                    <div class="session-number">1</div>
+                    <div class="session-dates">1er mars - 30 avril</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Session printemps</p>
+                    <div class="session-status">Ouvert</div>
+                </div>
+
+                <div class="session-card">
+                    <div class="session-number">2</div>
+                    <div class="session-dates">1er mai - 30 juin</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Session été</p>
+                    <div class="session-status">Ouvert</div>
+                </div>
+
+                <div class="session-card">
+                    <div class="session-number">3</div>
+                    <div class="session-dates">1er juillet - 31 août</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Session vacances</p>
+                    <div class="session-status">Ouvert</div>
+                </div>
+
+                <div class="session-card">
+                    <div class="session-number">4</div>
+                    <div class="session-dates">1er sept. - 30 nov.</div>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Session automne</p>
+                    <div class="session-status">Ouvert</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIEU & ACCESSIBILITÉ -->
+        <section class="card" aria-labelledby="lieu-title">
+            <h2 id="lieu-title">Organisme de formation</h2>
+            
+            <h3>📍 Next Step Academy</h3>
+            <p>
+                <strong>Adresse :</strong> 66 Chemin du Droulet<br>
+                14910 BLONVILLE-SUR-MER<br>
+                <strong>Téléphone :</strong> 06 83 85 77 10<br>
+                <strong>Email :</strong> <a href="mailto:contact.nextstepacademy@gmail.com">contact.nextstepacademy@gmail.com</a>
+            </p>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2592.8!2d0.0375!3d49.3147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDE4JzUzLjAiTiAwwrAwMicxNS4wIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localisation de Next Step Academy à Blonville-sur-Mer">
+                </iframe>
+            </div>
+
+            <a href="#" class="accessibility-link" aria-label="Consulter nos conditions d'accessibilité et notre politique handicap">
+                ♿ Accessibilité : Consultez nos conditions d'accueil et notre politique de gestion du handicap
+            </a>
+        </section>
+
+        <!-- TÉLÉCHARGEMENTS -->
+        <section class="card download-section" aria-labelledby="telechargements-title">
+            <h2 id="telechargements-title">Documents à télécharger</h2>
+            <p style="margin-bottom: 30px;">Consultez le programme détaillé et inscrivez-vous dès maintenant.</p>
+            
+            <a href="PROGRAMME_MYOPIE_012026.pdf" class="btn-primary" download aria-label="Télécharger le programme complet au format PDF">
+                📄 Télécharger le programme complet (PDF)
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><strong>Directrice pédagogique</strong><br>
+                Isabelle Rivière<br>
+                📧 isabelle.riviere@nextstep-academy.fr<br>
+                📞 06 75 48 14 58</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informations légales</h3>
+                <p>
+                    N° SIREN : 849572623<br>
+                    N° déclaration d'activité : 28140379514<br>
+                    Certification Qualiopi : QUA21060009<br>
+                    Validité : 15/04/2025
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <p>
+                    <a href="#" aria-label="Consulter notre politique d'inclusion">Politique d'inclusion</a><br>
+                    <a href="#" aria-label="Consulter notre politique de gestion du handicap">Gestion du handicap</a><br>
+                    <a href="https://www.mondpc.fr" target="_blank" rel="noopener noreferrer" aria-label="Visiter le site de l'ANDPC (ouverture dans un nouvel onglet)">www.mondpc.fr</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Next Step Academy - Tous droits réservés | Conception pédagogique respectueuse des normes RSE et accessibilité RGAA 4.1</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Gestion de l'accordéon
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Fermer tous les autres items
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                });
+                
+                // Toggle l'item cliqué
+                if (!wasActive) {
+                    item.classList.add('active');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            // Accessibilité clavier (Entrée et Espace)
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
